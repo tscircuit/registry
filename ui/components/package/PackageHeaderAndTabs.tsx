@@ -1,14 +1,10 @@
 import { FaGithub } from "react-icons/fa"
-export const PackageHeaderAndTabs = ({
-  selectedTab,
-}: {
-  selectedTab?: string
-}) => (
+export const PackageHeaderAndTabs = ({ selectedTab }: { selectedTab?: string }) => (
   <div className="bg-white pt-6 z-0 relative shadow-sm">
     <div className="container mx-auto">
       <div>
         <div className="text-2xl font-semibold flex items-center">
-          <div>@seveibar/arduino</div>
+          <div>@seveibar/arduino-nano</div>
           <FaGithub className="ml-2 text-gray-600" />
         </div>
         <div className="flex text-md space-x-2 text-gray-500 mt-2">
