@@ -26,15 +26,15 @@ export const Header = ({ noShadow = false }: { noShadow?: boolean }) => (
           (item) => (
             <a
               key={item}
-              className="ml-6 text-xs text-gray-700 font-medium cursor-pointer"
+              className="inline-flex ml-6 text-xs text-gray-700 font-medium cursor-pointer"
             >
               {item}
             </a>
           )
         )}
       </div>
-      <div className="flex-grow" />
-      <a className="text-gray-700 text-xs font-medium mr-6 cursor-pointer">
+      <div className="md:flex-grow" />
+      <a className="inline-flex text-gray-700 text-xs font-medium mr-6 cursor-pointer">
         Sign In
       </a>
       <SearchBar />
