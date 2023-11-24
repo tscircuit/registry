@@ -9,8 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tscircuit/builder": "^1.5.4",
     "@tscircuit/pcb-viewer": "^1.2.12",
+    "@tscircuit/react-fiber": "^1.0.6",
     "@tscircuit/schematic-viewer": "^1.1.5",
+    "@tscircuit/table-viewer": "0.0.6",
     "github-markdown-css": "^5.4.0",
     "next": "14.0.3",
     "prismjs": "^1.29.0",

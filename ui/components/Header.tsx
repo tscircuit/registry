@@ -9,7 +9,7 @@ export const Header = ({ noShadow = false }: { noShadow?: boolean }) => (
     <div className="container mx-auto flex items-center flex-col sm:flex-row">
       <div className="flex items-center mb-4 sm:mb-0">
         <a
-          className="bg-blue-500 text-white inline-flex p-1 px-2 font-semibold rounded-lg"
+          className="bg-blue-500 text-white dark:text-white dark:bg-blue-500 inline-flex p-1 px-2 font-semibold rounded-lg"
           href="https://tscircuit.com"
         >
           tscircuit
