@@ -10,8 +10,8 @@ function classNames(...classes: any[]) {
 
 export default function Example() {
   return (
-    <Menu as="div" className="relative inline-block text-left">
-      <div>
+    <Menu as="div">
+      <div className="relative inline-block text-left">
         <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-xs font-semibold text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 items-center">
           Sort by: Trending Today
           <FaChevronDown className="text-gray-400 text-xs" aria-hidden="true" />

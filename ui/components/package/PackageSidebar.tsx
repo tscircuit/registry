@@ -3,6 +3,7 @@ import { PackageInstallInstructions } from "./PackageInstallInstructions"
 import { PCBViewer } from "@tscircuit/pcb-viewer"
 import { Schematic } from "@tscircuit/schematic-viewer"
 import { exampleSoupSchematic, exampleSoupPcb } from "./example-soup"
+import "@tscircuit/react-fiber"
 
 export const PackageSidebar = () => {
   const selectedInstallTarget = "Node"
