@@ -33,11 +33,14 @@ export const Header = ({ noShadow = false }: { noShadow?: boolean }) => (
               >
                 {item}
               </a>
-            )
+            ),
           )}
         </div>
         <div className="flex flex-grow items-center mt-4 md:mt-0 justify-end">
-          <a className="inline-flex text-gray-700 text-xs w-10 font-medium mr-4 cursor-pointer whitespace-nowrap">
+          <a
+            className="hover:bg-gray-100 rounded-md px-4 py-2 inline-flex text-gray-700 text-xs font-medium mr-2 cursor-pointer whitespace-nowrap"
+            href={"/signin"}
+          >
             Sign In
           </a>
           <SearchBar />
