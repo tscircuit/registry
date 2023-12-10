@@ -9,9 +9,9 @@ import StytchProvider from "@/ui/components/StytchProvider"
 export default function Home() {
   return (
     <PageLayout header={<Header />}>
-      <div className="bg-white">
-        <div className="container mx-auto flex flex-col pt-5">
-          <div className="w-full flex flex-col p-4">
+      <div className="bg-white min-h-screen pt-8">
+        <div className="container mx-auto flex flex-col pt-5 justify-center items-center">
+          <div className="w-full max-w-sm flex flex-col p-4">
             <StytchProvider>
               <Login />
             </StytchProvider>
