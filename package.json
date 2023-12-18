@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "npm run dev",
     "dev": "doppler run -p registry-frontend -c dev -- next dev",
     "build": "next build",
-    "start": "next start",
+    "start:prod": "next start",
     "lint": "next lint"
   },
   "dependencies": {
