@@ -1,3 +1,5 @@
+import { ClientOnlyProviders } from "./ClientOnlyProviders"
+
 export const PageLayout = ({
   header,
   children,
