@@ -2,65 +2,37 @@
 
 import { Header } from "@/ui/components/Header"
 import { PageLayout } from "@/ui/components/PageLayout"
-import StytchProvider from "@/ui/components/StytchProvider"
 import { useStore } from "@/ui/hooks/use-store"
-import { getRegistryAxios } from "@/ui/lib/get-registry-axios"
-import { useStytch } from "@stytch/nextjs"
-import {
-  OAuthAuthenticateResponse,
-  MagicLinksAuthenticateResponse,
-} from "@stytch/vanilla-js"
 import { useRouter, useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
-
-async function exchangeSession(
-  authRes: OAuthAuthenticateResponse | MagicLinksAuthenticateResponse
-) {
-  const axios = getRegistryAxios()
-  const {
-    data: { session },
-  } = await axios.post("/sessions/create", {
-    stytch_jwt: authRes.session_jwt,
-  })
-  return session
-}
+import jwt from "jsonwebtoken"
 
 export const AuthenticatePageInnerContent = () => {
-  const stytch = useStytch()
   const router = useRouter()
   const searchParams = useSearchParams()
-  const stytch_token_type = searchParams.get("stytch_token_type")
-  const token = searchParams.get("token")
+  const session_token = searchParams.get("session_token")
   const setSession = useStore((s) => s.setSession)
   const [message, setMessage] = useState("logging you in...")
   useEffect(() => {
     async function login() {
-      let session
-      if (token && stytch_token_type === "oauth") {
-        const res = await stytch.oauth.authenticate(token, {
-          session_duration_minutes: 60,
-        })
-        session = exchangeSession(res)
-      }
-      if (token && stytch_token_type === "magic_links") {
-        const res = await stytch.magicLinks.authenticate(token, {
-          session_duration_minutes: 60,
-        })
-        const session = exchangeSession(res)
-      }
-
-      if (!session) {
+      if (!session_token) {
         setMessage("couldn't log in - no token")
         return
       }
 
-      setSession(session)
-      router.push("/")
+      if (session_token) {
+        setSession({
+          ...jwt.decode(session_token),
+          token: session_token,
+        })
+        router.push("/")
+        return
+      }
     }
     login().catch((e) => {
       setMessage(`error logging you in\n\n${e.toString()}`)
     })
-  }, [stytch_token_type, token, stytch])
+  }, [session_token])
 
   return (
     <div className="bg-white p-8 min-h-screen">
@@ -72,9 +44,7 @@ export const AuthenticatePageInnerContent = () => {
 
 export const AuthenticatePage = () => (
   <PageLayout header={<Header />}>
-    <StytchProvider>
-      <AuthenticatePageInnerContent />
-    </StytchProvider>
+    <AuthenticatePageInnerContent />
   </PageLayout>
 )
 

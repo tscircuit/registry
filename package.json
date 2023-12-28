@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "npm run dev",
-    "dev": "doppler run -p registry-frontend -c dev -- next dev",
+    "dev": "PORT=3101 doppler run -p registry-frontend -c dev -- next dev",
     "build": "next build",
     "start:prod": "next start",
     "lint": "next lint"
@@ -29,7 +29,6 @@
     "zustand": "^4.4.7"
   },
   "devDependencies": {
-    "@stytch/nextjs": "^14.0.0",
     "@types/node": "^20",
     "@types/prismjs": "^1.26.3",
     "@types/react": "^18",
@@ -37,6 +36,7 @@
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.3",
+    "jsonwebtoken": "^9.0.2",
     "nextlove": "^2.10.1",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
